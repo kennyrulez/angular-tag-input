@@ -1,7 +1,24 @@
 {
   "name": "angular-tag-input",
-  "version": "0.0.0",
+  "version": "2.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kennyrulez/angular-tag-input"
+  },
+  "keywords": [
+    "angular",
+    "library",
+    "chip",
+    "tag-input",
+    "autocomplete",
+    "tags"
+  ],
+  "author": "fornito.valerio@gmail.com",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kennyrulez/angular-tag-input/issues"
+  },
+  "homepage": "https://github.com/kennyrulez/angular-tag-input#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -33,6 +50,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "fs-extra": "^5.0.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
