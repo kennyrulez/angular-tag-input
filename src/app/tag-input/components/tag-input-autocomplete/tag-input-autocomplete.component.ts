@@ -11,7 +11,7 @@ import { KEYS } from '../../shared/tag-input-keys';
   selector: 'angular-tag-input-autocomplete',
   template: `
     <div
-      *ngFor="const item of itemsToParse; const itemIndex = index"
+      *ngFor="let item of itemsToParse; let itemIndex = index"
       [ngClass]="{ 'is-selected': selectedItemIndex === itemIndex }"
       (mousedown)="selectItem(itemIndex)"
       class="angular-autocomplete-item">

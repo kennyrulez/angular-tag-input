@@ -1,1 +1,1 @@
-export { TagInputComponent } from './components/tag-input/tag-input.component';
+export { TagInputModule } from './tag-input.module';

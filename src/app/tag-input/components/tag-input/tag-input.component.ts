@@ -39,7 +39,7 @@ export interface AutoCompleteItem {
       [displayBy]="displayBy"
       [selected]="selectedTag === index"
       (tagRemoved)="_removeTag($event)"
-      *ngFor="const tag of tagsList; const index = index">
+      *ngFor="let tag of tagsList; let index = index">
     </angular-tag-input-item>
     <form [formGroup]="tagInputForm" class="angular-tag-input-form">
       <input
@@ -384,6 +384,5 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     if (this.autocompleteSubscription) {
       this.autocompleteSubscription.unsubscribe();
     }
-
   }
 }
