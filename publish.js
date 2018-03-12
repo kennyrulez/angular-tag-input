@@ -17,7 +17,7 @@ function createDeclarations() {
 function createPackageJson() {
     const packageJSON = {
         "name": "angular-tag-input",
-        "version": "2.0.1",
+        "version": "2.0.2",
         "description": "Angular 5+ library for chips",
         "main": "index.js",
         "scripts": {

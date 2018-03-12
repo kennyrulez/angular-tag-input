@@ -60,6 +60,7 @@ export interface AutoCompleteItem {
           [selectFirstItem]="autocompleteSelectFirstItem"
           (itemSelected)="onAutocompleteSelect($event)"
           (enterPressed)="onAutocompleteEnter($event)">
+          (tabPressed)="onAutocompleteEnter($event)">
         </angular-tag-input-autocomplete>
       </div>
     </form>
@@ -104,6 +105,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   @Input() addOnBlur = true;
   @Input() addOnComma = true;
   @Input() addOnEnter = true;
+  @Input() addOnTab = true;
   @Input() addOnPaste = true;
   @Input() addOnSpace = false;
   @Input() allowDuplicates = false;
@@ -197,6 +199,13 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
         }
         break;
 
+      case KEYS.tab:
+        if (this.addOnTab && !this.showAutocomplete()) {
+          this._addTags([this.inputValue]);
+          event.preventDefault();
+        }
+        break;
+
       case KEYS.comma:
         if (this.addOnComma) {
           this._addTags([this.inputValue]);
@@ -241,6 +250,12 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
 
   onAutocompleteEnter() {
     if (this.addOnEnter && this.showAutocomplete() && !this.autocompleteMustMatch) {
+      this._addTags([this.inputValue]);
+    }
+  }
+
+  onAutocompleteTab() {
+    if (this.addOnTab && this.showAutocomplete() && !this.autocompleteMustMatch) {
       this._addTags([this.inputValue]);
     }
   }

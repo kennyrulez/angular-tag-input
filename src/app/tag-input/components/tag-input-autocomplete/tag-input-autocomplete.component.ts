@@ -46,6 +46,7 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
   @Input() selectFirstItem = false;
   @Output() itemSelected: EventEmitter<string> = new EventEmitter<string>();
   @Output() enterPressed: EventEmitter<any> = new EventEmitter<any>();
+  @Output() tabPressed: EventEmitter<any> = new EventEmitter<any>();
   public selectedItemIndex: number = null;
   private keySubscription: Subscription;
   private get itemsCount(): number {
@@ -91,6 +92,11 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
           case KEYS.enter:
             this.selectItem();
             this.enterPressed.emit();
+            break;
+
+          case KEYS.tab:
+            this.selectItem();
+            this.tabPressed.emit();
             break;
 
           case KEYS.esc:

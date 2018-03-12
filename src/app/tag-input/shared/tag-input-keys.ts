@@ -3,6 +3,7 @@ export const KEYS = {
     comma: 188,
     downArrow: 40,
     enter: 13,
+    tab: 9,
     esc: 27,
     space: 32,
     upArrow: 38
