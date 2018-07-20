@@ -1,7 +1,6 @@
-import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'angular-tag-input-item',
   template: `
     {{text}}

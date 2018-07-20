@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { TagInputModule } from './tag-input/tag-input.module';
+import { AngularTagInputModule } from 'angular-tag-input';
 
 import { AppComponent } from './app.component';
 
@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    TagInputModule
+    AngularTagInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

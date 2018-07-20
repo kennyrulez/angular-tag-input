@@ -1,22 +1,12 @@
 import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  HostBinding,
-  HostListener,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-  ViewChild
+  Component, OnInit, HostBinding, Input, OnDestroy, Output,
+  EventEmitter, ElementRef, HostListener, forwardRef, ViewChild
 } from '@angular/core';
-import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, FormBuilder, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
-import { tap } from 'rxjs/operators';
+import { FormBuilder, NG_VALUE_ACCESSOR, ControlValueAccessor, AbstractControl, FormGroup } from '@angular/forms';
 
-import { KEYS } from '../../shared/tag-input-keys';
+import { KEYS } from '../shared/tag-input-keys';
+import { Subscription, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 /**
  * Taken from @angular/common/src/facade/lang
@@ -30,7 +20,6 @@ export interface AutoCompleteItem {
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'angular-tag-input',
   template: `
     <angular-tag-input-item
@@ -50,7 +39,7 @@ export interface AutoCompleteItem {
         [placeholder]="placeholder"
         (paste)="onInputPaste($event)"
         (keydown)="onKeydown($event)"
-        (blur)="onInputBlurred($event)"
+        (blur)="onInputBlurred()"
         (focus)="onInputFocused()">
 
       <div *ngIf="showAutocomplete()" class="angular-tag-input-autocomplete-container">
@@ -59,8 +48,8 @@ export interface AutoCompleteItem {
           [items]="autocompleteResults"
           [selectFirstItem]="autocompleteSelectFirstItem"
           (itemSelected)="onAutocompleteSelect($event)"
-          (enterPressed)="onAutocompleteEnter($event)">
-          (tabPressed)="onAutocompleteEnter($event)">
+          (enterPressed)="onAutocompleteEnter()">
+          (tabPressed)="onAutocompleteEnter()">
         </angular-tag-input-autocomplete>
       </div>
     </form>
@@ -97,10 +86,10 @@ export interface AutoCompleteItem {
     }
   `],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => TagInputComponent), multi: true },
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => AngularTagInputComponent), multi: true },
   ]
 })
-export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnInit {
+export class AngularTagInputComponent implements ControlValueAccessor, OnDestroy, OnInit {
   @HostBinding('class.angular-tag-input-focus') isFocused: boolean;
   @Input() addOnBlur = true;
   @Input() addOnComma = true;
@@ -225,7 +214,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     }
   }
 
-  onInputBlurred(event: object): void {
+  onInputBlurred(): void {
     if (this.addOnBlur) { this._addTags([this.inputValue]); }
     this.isFocused = false;
   }
@@ -349,7 +338,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     this._emitTagAdded(validTags);
   }
 
-  private _removeTag(tagIndexToRemove: number): void {
+  _removeTag(tagIndexToRemove: number): void {
     const removedTag = this.tagsList[tagIndexToRemove];
     this.tagsList.splice(tagIndexToRemove, 1);
     this._resetSelected();

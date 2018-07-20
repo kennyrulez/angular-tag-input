@@ -1,13 +1,10 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, OnChanges, OnDestroy } from '@angular/core';
+import { Subscription, fromEvent } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 
 import { KEYS } from '../../shared/tag-input-keys';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'angular-tag-input-autocomplete',
   template: `
     <div

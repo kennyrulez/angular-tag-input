@@ -1,0 +1,9 @@
+{
+  "name": "angular-tag-input",
+  "version": "3.0.0",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/forms": "^6.0.0-rc.0 || ^6.0.0"
+  }
+}
