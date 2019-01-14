@@ -2,7 +2,7 @@
   "name": "angular-tag-input",
   "author": "Valerio Fornito <fornito.valerio@gmail.com>",
   "license": "MIT",
-  "version": "3.1.0",
+  "version": "3.2.1",
   "peerDependencies": {
     "@angular/common": ">=6.0.0 < 8.0.0",
     "@angular/core": ">=6.0.0 < 8.0.0",
