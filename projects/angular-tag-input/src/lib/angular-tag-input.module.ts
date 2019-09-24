@@ -7,18 +7,8 @@ import { TagInputItemComponent } from './tag-input-item/tag-input-item.component
 import { TagInputAutocompleteComponent } from './tag-input-autocomplete/tag-input-autocomplete.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  declarations: [
-    AngularTagInputComponent,
-    TagInputItemComponent,
-    TagInputAutocompleteComponent
-  ],
-  exports: [
-    AngularTagInputComponent
-  ]
+    imports: [CommonModule, FormsModule, ReactiveFormsModule],
+    declarations: [AngularTagInputComponent, TagInputItemComponent, TagInputAutocompleteComponent],
+    exports: [AngularTagInputComponent]
 })
-export class AngularTagInputModule { }
+export class AngularTagInputModule {}
